@@ -9,6 +9,6 @@ router.route("/get").get(isAuthenticated, getAppliedJobs);
 router.route("/:id/applicants").get(isAuthenticated, getApplicants);
 router.route("/status/:id/update").post(isAuthenticated, updateStatus);
  
-
+// hi
 export default router;
 
