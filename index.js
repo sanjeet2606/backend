@@ -17,7 +17,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 const corsOptions = {
-    origin: 'https://frontend-eight-pi-98.vercel.app/', // specify the frontend's URL
+    origin: [
+        'http://localhost:5173', // Local development
+        'https://frontend-eight-pi-98.vercel.app' // Deployed frontend
+    ],// specify the frontend's URL
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true
 };
