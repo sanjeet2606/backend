@@ -11,11 +11,11 @@ import applicationRoute from "./routes/application.route.js";
 dotenv.config({});
 
 const app = express();
-const __dirname = path.resolve();
+// const __dirname = path.resolve();
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser());
+// app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
+// app.use(cookieParser());
 
 // app.use((req, res, next) => {
 //   const origin = 'https://frontend-eight-pi-98.vercel.app/';
@@ -41,30 +41,30 @@ app.use(cookieParser());
 //     credentials: true
 // };
 
-app.use((req, res, next) => {
-  const origin = req.headers.origin;
-  if (process.env.allowedOrigins.includes(origin)) {
-    res.setHeader("Access-Control-Allow-Origin", origin);
-  }
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin,X-Requested-With,Content-Type,Accept"
-  );
-  next();
-});
+// app.use((req, res, next) => {
+//   const origin = req.headers.origin;
+//   if (process.env.allowedOrigins.includes(origin)) {
+//     res.setHeader("Access-Control-Allow-Origin", origin);
+//   }
+//   res.header(
+//     "Access-Control-Allow-Headers",
+//     "Origin,X-Requested-With,Content-Type,Accept"
+//   );
+//   next();
+// });
 // const app = express();
 
 // // middleware
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: true }));
-// app.use(cookieParser());
-// const corsOptions = {
-//     origin: '*',
-//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-//     credentials: true
-// }
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
+const corsOptions = {
+    origin: 'https://frontend-eight-pi-98.vercel.app',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true
+}
 
-// app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 
 
 const PORT = process.env.PORT || 8000;
