@@ -29,6 +29,7 @@ export const registerCompany = async (req, res) => {
             success: true
         })
     } catch (error) {
+        console.log("error is here");
         console.log(error);
     }
 }
