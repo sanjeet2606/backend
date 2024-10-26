@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 const corsOptions = {
-    origin: 'https://frontend-eczoehyrw-sanjeet2606s-projects.vercel.app', // specify the frontend's URL
+    origin: 'https://frontend-eight-pi-98.vercel.app', // specify the frontend's URL
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true
 };
