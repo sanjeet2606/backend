@@ -11,7 +11,6 @@ import applicationRoute from "./routes/application.route.js";
 dotenv.config({});
 
 const app = express();
-const app = express();
 const __dirname = path.resolve();
 
 app.use(express.json());
