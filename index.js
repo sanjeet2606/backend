@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 const corsOptions = {
     origin: [
-        'http://localhost:5173', // Local development
+        // 'http://localhost:5173', // Local development
         'https://frontend-eight-pi-98.vercel.app' // Deployed frontend
     ],// specify the frontend's URL
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
