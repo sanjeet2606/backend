@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use((req, res, next) => {
-  const origin = req.headers.origin;
+  const origin = 'https://frontend-eight-pi-98.vercel.app/';
   if (process.env.allowedOrigins.includes(origin)) {
     res.setHeader("Access-Control-Allow-Origin", origin);
   }
