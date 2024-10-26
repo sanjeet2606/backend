@@ -11,18 +11,39 @@ import applicationRoute from "./routes/application.route.js";
 dotenv.config({});
 
 const app = express();
+const app = express();
+const __dirname = path.resolve();
 
-// middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-const corsOptions = {
-    origin: '*',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials: true
-}
+
+app.use((req, res, next) => {
+  const origin = 'https://frontend-eight-pi-98.vercel.app/';
+  if (process.env.allowedOrigins.includes(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+  }
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin,X-Requested-With,Content-Type,Accept"
+  );
+  next();
+});
+// middleware
+// app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
+// app.use(cookieParser());
+// const corsOptions = {
+//     origin: [
+//         // 'http://localhost:5173', // Local development
+//         'https://frontend-eight-pi-98.vercel.app' // Deployed frontend
+//     ],// specify the frontend's URL
+//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
+//     credentials: true
+// };
 
 app.use(cors(corsOptions));
+
 
 const PORT = process.env.PORT || 8000;
 
